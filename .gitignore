@@ -1,0 +1,38 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets and local environments
+.env
+.env.*
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Runtime database and generated data
+data/runtime/*
+!data/runtime/.gitkeep
+data/normalized/*
+!data/normalized/.gitkeep
+
+# Drive-synced or large source material
+inbox/*
+!inbox/.gitkeep
+!inbox/README.md
+raw/documents/*
+!raw/documents/.gitkeep
+raw/datasets/*
+!raw/datasets/.gitkeep
+raw/web/*
+!raw/web/.gitkeep
+exports/*
+!exports/.gitkeep
+!exports/README.md
+
+# Generated reports
+*.sqlite
+*.sqlite3
+*.db
+*.parquet

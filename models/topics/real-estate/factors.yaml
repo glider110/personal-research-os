@@ -1,0 +1,21 @@
+topic_id: topic.real-estate
+version: factor-v0.1
+factors:
+  - id: factor.real-estate.household-demand
+    name: 居民住房需求
+    status: draft
+    mechanism: 家庭数量、收入、就业、迁移和住房改善需求共同影响购房意愿
+    evidence_ids: []
+    assessment_method: human_reviewed
+  - id: factor.real-estate.purchasing-power
+    name: 居民购房能力
+    status: draft
+    mechanism: 收入、首付、利率和月供负担共同决定支付能力
+    evidence_ids: []
+    assessment_method: human_reviewed
+  - id: factor.real-estate.inventory-pressure
+    name: 库存去化压力
+    status: draft
+    mechanism: 待售库存和销售速度共同决定去化周期与价格压力
+    evidence_ids: []
+    assessment_method: rule_plus_human_review

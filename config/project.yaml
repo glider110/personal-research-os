@@ -1,0 +1,18 @@
+project:
+  id: personal-research-os
+  name: 因果研究台
+  version: 0.1.0
+  language: zh-CN
+  timezone: Asia/Shanghai
+
+storage:
+  source_archive: google-drive
+  metadata_store: sqlite
+  time_series_store: parquet
+  version_control: git
+
+defaults:
+  review_frequency: monthly
+  confidence_levels: [low, medium, high]
+  scenario_types: [base, upside, stress]
+  immutable_snapshots: true

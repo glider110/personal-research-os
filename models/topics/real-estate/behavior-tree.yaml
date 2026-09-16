@@ -1,0 +1,18 @@
+topic_id: topic.real-estate
+version: bt-v0.1
+root:
+  id: bt.real-estate.research-root
+  type: sequence
+  children:
+    - id: bt.real-estate.data-check
+      type: condition
+      name: 数据完整性检查
+    - id: bt.real-estate.factor-refresh
+      type: parallel
+      name: 因子状态刷新
+    - id: bt.real-estate.scenario-build
+      type: sequence
+      name: 情景生成与竞争解释比较
+    - id: bt.real-estate.publish
+      type: selector
+      name: 发布判断、补证据或保留冲突假设

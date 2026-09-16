@@ -1,0 +1,21 @@
+topic_id: topic.real-estate
+version: scenario-v0.1
+scenarios:
+  - id: scenario.real-estate.base
+    name: 基准情景
+    type: base
+    assumptions: []
+    observable_signals: []
+    falsifiers: []
+  - id: scenario.real-estate.upside
+    name: 向好情景
+    type: upside
+    assumptions: []
+    observable_signals: []
+    falsifiers: []
+  - id: scenario.real-estate.stress
+    name: 压力情景
+    type: stress
+    assumptions: []
+    observable_signals: []
+    falsifiers: []
