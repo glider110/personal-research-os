@@ -1,0 +1,954 @@
+{
+  "action": {
+    "kind": "research_only",
+    "next_review_date": "2026-10-16",
+    "next_steps": [
+      "人工核对因子与情景",
+      "补齐待核验说法的原始来源",
+      "用独立结果数据做后续复盘"
+    ]
+  },
+  "analysis": {
+    "as_of_date": "2026-09-16",
+    "causal_edges": [
+      {
+        "evidence_ids": [
+          "evidence.nbs.12.funding",
+          "evidence.nbs.12.construction"
+        ],
+        "falsifier": "融资改善后新开工仍持续下降，且其他条件相近，需检验需求与库存是否为主导。",
+        "from_factor_id": "factor.re.financing",
+        "id": "edge.re.financing-starts",
+        "lag": "数月至数季，尚未估计",
+        "mechanism": "在销售预期和政策条件相近时，融资可得性改善可能支持新开工，融资约束可能使项目延后；同期相关性尚未识别因果。",
+        "outcome": "新开工计划",
+        "scope": "全国房地产开发企业；需按企业与城市验证",
+        "sign": "positive",
+        "status": "hypothesis"
+      },
+      {
+        "evidence_ids": [
+          "evidence.nbs.12.construction",
+          "evidence.nbs.12.sales"
+        ],
+        "falsifier": "同城供给收缩而需求稳定，价格仍下降时需检查库存、质量和政策。",
+        "from_factor_id": "factor.re.development",
+        "id": "edge.re.supply-price",
+        "lag": "从开工到可售或交付存在地区差异",
+        "mechanism": "需求不变且存量供给有限时，新增供给下降可能支撑价格；若需求下降更快或二手房供给增加，价格仍可能承压。",
+        "outcome": "未来新房价格",
+        "scope": "城市级新房和二手房市场，不可直接外推全国所有住房",
+        "sign": "conditional",
+        "status": "hypothesis"
+      }
+    ],
+    "factors": [
+      {
+        "confidence": "medium",
+        "direction": "2021年银行贷款来源收缩；整体流动性因企业而异",
+        "evidence_ids": [
+          "evidence.nbs.11.funding",
+          "evidence.nbs.12.funding"
+        ],
+        "id": "factor.re.financing",
+        "mechanism": "国内贷款累计下降、总到位资金仍增长，提示资金来源结构变化。它支持融资约束假设，但不能单凭全国汇总值证明所有房企资金链断裂。",
+        "metric_ids": [
+          "metric.re.11.loans-yoy",
+          "metric.re.12.loans-yoy",
+          "metric.re.12.funding-yoy"
+        ],
+        "name": "房企融资与现金流结构",
+        "reversal_conditions": "同口径国内贷款与销售回款持续改善，且有企业现金流证据证明约束缓解。"
+      },
+      {
+        "confidence": "medium",
+        "direction": "2021年新增开发活动收缩",
+        "evidence_ids": [
+          "evidence.nbs.11.construction",
+          "evidence.nbs.12.construction",
+          "evidence.nbs.11.land",
+          "evidence.nbs.12.land"
+        ],
+        "id": "factor.re.development",
+        "mechanism": "新开工和拿地均收缩，与融资和预期有关；二者不当作独立投票。新开工是未来供给流量，施工面积还包含往期开工项目。",
+        "metric_ids": [
+          "metric.re.11.starts-yoy",
+          "metric.re.12.starts-yoy",
+          "metric.re.12.land-yoy",
+          "metric.re.12.construction-yoy"
+        ],
+        "name": "开发投资意愿与未来供给",
+        "reversal_conditions": "同口径新开工、拿地与销售连续改善，或证明下降主要来自统计口径调整。"
+      },
+      {
+        "confidence": "low",
+        "direction": "待补充数据",
+        "evidence_ids": [
+          "evidence.nbs.11.sales",
+          "evidence.nbs.12.sales"
+        ],
+        "id": "factor.re.demand",
+        "mechanism": "全年销售面积累计增长不排除下半年走弱。当前缺少月度、城市、二手房成交与库存数据，不能确认需求比供给下降更快。",
+        "metric_ids": [
+          "metric.re.11.sales-yoy",
+          "metric.re.12.sales-yoy"
+        ],
+        "name": "销售需求与城市分化",
+        "reversal_conditions": "补齐城市层级和月度销售量价数据后重新评估。"
+      },
+      {
+        "confidence": "low",
+        "direction": "无法据现有证据定量判断",
+        "evidence_ids": [
+          "evidence.claim.valuation",
+          "evidence.claim.urbanization"
+        ],
+        "id": "factor.re.valuation",
+        "mechanism": "房价相对收入、租金和融资成本会影响支付能力；目前讨论中的估值阈值和城镇化瓶颈没有独立核验。",
+        "metric_ids": [],
+        "name": "购买力与估值约束",
+        "reversal_conditions": "取得同城同期住房价格、家庭收入中位数、租金及按揭条件后重新计算。"
+      }
+    ],
+    "limitations": [
+      "本轮为2026年对2021年资料的历史重建，不是2021年真实预测，也不是无前视偏差回测。",
+      "2021年全年统计于2022年1月17日发布，不能用于声称在2021年12月31日已知全年结果。",
+      "视频仅保存NotebookLM可见转录片段，未下载原视频；页面采集也不保证包含未加载内容。",
+      "NotebookLM原有引用编号只在对应消息中有意义，未全部解析成原文件页码/时间戳。",
+      "两个同名框架来源保留独立登记，尚未确认是否为同一版本，不能重复计权。",
+      "-31.2%单月新开工降幅尚未独立复算；累计同比不能直接相减。",
+      "2023—2025年土地面积行业估算、房价收入比阈值和70%城镇化瓶颈均待核验。",
+      "因果机制与情景为本地Agent整理的假设，当前缺少城市量价、库存、家庭收入和企业现金流证据。",
+      "历史2021年指标不能用于直接发布2026年市场方向。"
+    ],
+    "mode": "historical_reconstruction",
+    "next_review_date": "2026-10-16",
+    "question": "核对讨论中2021年房地产收缩的指标口径，并解释为何新开工减少不必然意味着房价上涨。",
+    "scenarios": [
+      {
+        "assumptions": [
+          "融资恢复有限",
+          "销售需求未显著改善；这一前提尚未被本轮数据确认"
+        ],
+        "factor_ids": [
+          "factor.re.financing",
+          "factor.re.development",
+          "factor.re.demand"
+        ],
+        "falsifiers": [
+          "融资与销售同步持续改善"
+        ],
+        "id": "scenario.re.base",
+        "name": "基准假设：融资约束与需求偏弱并存",
+        "signals": [
+          "补齐月度销售、回款和新开工同比",
+          "观察城市库存去化"
+        ],
+        "type": "base"
+      },
+      {
+        "assumptions": [
+          "政策与融资传导有效",
+          "人口流入城市需求恢复且库存可控"
+        ],
+        "factor_ids": [
+          "factor.re.demand",
+          "factor.re.development"
+        ],
+        "falsifiers": [
+          "销量改善不能持续或库存继续累积"
+        ],
+        "id": "scenario.re.upside",
+        "name": "向好假设：需求恢复、供给收缩支撑局部市场",
+        "signals": [
+          "同城销售回暖、去化期缩短",
+          "新开工恢复滞后于销售"
+        ],
+        "type": "upside"
+      },
+      {
+        "assumptions": [
+          "销售回款继续弱化",
+          "交付与偿债压力升高并影响信心"
+        ],
+        "factor_ids": [
+          "factor.re.financing",
+          "factor.re.demand"
+        ],
+        "falsifiers": [
+          "交付、回款与信用条件稳定改善"
+        ],
+        "id": "scenario.re.stress",
+        "name": "压力假设：现金流与购房信心相互拖累",
+        "signals": [
+          "企业经营现金流和债务到期数据恶化",
+          "同城成交下降、去化期拉长"
+        ],
+        "type": "stress"
+      }
+    ]
+  },
+  "as_of_date": "2026-09-16",
+  "causal_edges": [
+    {
+      "evidence_ids": [
+        "evidence.nbs.12.funding",
+        "evidence.nbs.12.construction"
+      ],
+      "falsifier": "融资改善后新开工仍持续下降，且其他条件相近，需检验需求与库存是否为主导。",
+      "from_factor_id": "factor.re.financing",
+      "id": "edge.re.financing-starts",
+      "lag": "数月至数季，尚未估计",
+      "mechanism": "在销售预期和政策条件相近时，融资可得性改善可能支持新开工，融资约束可能使项目延后；同期相关性尚未识别因果。",
+      "outcome": "新开工计划",
+      "scope": "全国房地产开发企业；需按企业与城市验证",
+      "sign": "positive",
+      "status": "hypothesis"
+    },
+    {
+      "evidence_ids": [
+        "evidence.nbs.12.construction",
+        "evidence.nbs.12.sales"
+      ],
+      "falsifier": "同城供给收缩而需求稳定，价格仍下降时需检查库存、质量和政策。",
+      "from_factor_id": "factor.re.development",
+      "id": "edge.re.supply-price",
+      "lag": "从开工到可售或交付存在地区差异",
+      "mechanism": "需求不变且存量供给有限时，新增供给下降可能支撑价格；若需求下降更快或二手房供给增加，价格仍可能承压。",
+      "outcome": "未来新房价格",
+      "scope": "城市级新房和二手房市场，不可直接外推全国所有住房",
+      "sign": "conditional",
+      "status": "hypothesis"
+    }
+  ],
+  "data_version": "da171d2e2f4493a1fe66d1b931c906dffc1a09f83fb543d5f9fb7cfc8a3f0759",
+  "evidence": [
+    {
+      "claim": "2021年1—11月房屋新开工、施工为不同口径，不能混用。",
+      "excerpt": "1—11 月份，房地产开发企业房屋施工面积 959654 万平方米，同比增长 6.3%。其中，住宅施工面积 679540 万平方米，增长 6.5%。房屋新开工面积 182820 万平方米，下降 9.1%。其中，住宅新开工面积 135017 万平方米，下降 8.4%。房屋竣工面积 68754 万平方米，增长 16.2%。其中，住宅竣工面积 49582 万平方米，增长 16.2%。",
+      "id": "evidence.nbs.11.construction",
+      "kind": "fact",
+      "locator": "nbs-2021-11.md:L14",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-11",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年1—11月全国房企土地购置面积累计同比下降。",
+      "excerpt": "1—11 月份，房地产开发企业土地购置面积 18287 万平方米，同比下降 11.2%；土地成交价款 14519 亿元，增长 4.5%。",
+      "id": "evidence.nbs.11.land",
+      "kind": "fact",
+      "locator": "nbs-2021-11.md:L16",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-11",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年1—11月总到位资金累计增长与国内贷款累计下降并存。",
+      "excerpt": "1—11 月份，房地产开发企业到位资金 183362 亿元，同比增长 7.2%；比 2019 年 1—11 月份增长 14.2%，两年平均增长 6.9%。其中，国内贷款 21640 亿元，下降 10.8%；利用外资 90 亿元，下降 41.7%；自筹资金 59378 亿元，增长 4.8%；定金及预收款 67156 亿元，增长 17.0%；个人按揭贷款 29633 亿元，增长 9.8%。",
+      "id": "evidence.nbs.11.funding",
+      "kind": "fact",
+      "locator": "nbs-2021-11.md:L30",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-11",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年1—11月商品房销售面积累计同比为正，不能据此断言每个月均增长。",
+      "excerpt": "1—11 月份，商品房销售面积 158131 万平方米，同比增长 4.8%；比 2019 年 1—11 月份增长 6.2%，两年平均增长 3.1%。其中，住宅销售面积增长 4.4%，办公楼销售面积增长 2.0%，商业营业用房销售面积下降 2.6%。商品房销售额 161667 亿元，增长 8.5%；比 2019 年 1—11 月份增长 16.3%，两年平均增长 7.8%。其中，住宅销售额增长 9.3%，办公楼销售额下降 3.0%，商业营业用房销售额下降 2.2%。",
+      "id": "evidence.nbs.11.sales",
+      "kind": "fact",
+      "locator": "nbs-2021-11.md:L20",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-11",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年1—12月房屋新开工、施工为不同口径，不能混用。",
+      "excerpt": "2021 年，房地产开发企业房屋施工面积 975387 万平方米，比上年增长 5.2%。其中，住宅施工面积 690319 万平方米，增长 5.3%。房屋新开工面积 198895 万平方米，下降 11.4%。其中，住宅新开工面积 146379 万平方米，下降 10.9%。房屋竣工面积 101412 万平方米，增长 11.2%。其中，住宅竣工面积 73016 万平方米，增长 10.8%。",
+      "id": "evidence.nbs.12.construction",
+      "kind": "fact",
+      "locator": "nbs-2021-12.md:L14",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-12",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年1—12月全国房企土地购置面积累计同比下降。",
+      "excerpt": "2021 年，房地产开发企业土地购置面积 21590 万平方米，比上年下降 15.5%；土地成交价款 17756 亿元，增长 2.8%。",
+      "id": "evidence.nbs.12.land",
+      "kind": "fact",
+      "locator": "nbs-2021-12.md:L16",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-12",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年1—12月总到位资金累计增长与国内贷款累计下降并存。",
+      "excerpt": "2021 年，房地产开发企业到位资金 201132 亿元，比上年增长 4.2%；比 2019 年增长 12.6%，两年平均增长 6.1%。其中，国内贷款 23296 亿元，比上年下降 12.7%；利用外资 107 亿元，下降 44.1%；自筹资金 65428 亿元，增长 3.2%；定金及预收款 73946 亿元，增长 11.1%；个人按揭贷款 32388 亿元，增长 8.0%。",
+      "id": "evidence.nbs.12.funding",
+      "kind": "fact",
+      "locator": "nbs-2021-12.md:L30",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-12",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年1—12月商品房销售面积累计同比为正，不能据此断言每个月均增长。",
+      "excerpt": "2021 年，商品房销售面积 179433 万平方米，比上年增长 1.9%；比 2019 年增长 4.6%，两年平均增长 2.3%。其中，住宅销售面积比上年增长 1.1%，办公楼销售面积增长 1.2%，商业营业用房销售面积下降 2.6%。商品房销售额 181930 亿元，增长 4.8%；比 2019 年增长 13.9%，两年平均增长 6.7%。其中，住宅销售额比上年增长 5.3%，办公楼销售额下降 6.9%，商业营业用房销售额下降 2.0%。",
+      "id": "evidence.nbs.12.sales",
+      "kind": "fact",
+      "locator": "nbs-2021-12.md:L20",
+      "review": {
+        "method": "核对国家统计局发布稿正文、统计口径及表格；verified 仅指摘录核对，不等于人工批准研究结论",
+        "reviewed_at": "2026-09-16T08:07:38+00:00",
+        "reviewer": "local-agent/source-crosscheck"
+      },
+      "source_id": "source.nbs.real-estate.2021-12",
+      "status": "verified"
+    },
+    {
+      "claim": "2021年12月单月新开工同比 -31.2%：需同口径前期原始值复算。",
+      "excerpt": "646 text ，到了 12 月单月新开工面积暴跌  31.2% （住宅单月下跌 33.1%）",
+      "id": "evidence.claim.monthly-starts",
+      "kind": "claim",
+      "locator": "notebook-visible.txt:L584",
+      "review": null,
+      "source_id": "source.lidang.discussion",
+      "status": "pending"
+    },
+    {
+      "claim": "2023—2025年土地面积仅为讨论中的行业估算，不录入正式时间序列。",
+      "excerpt": "356 text 约  1.0 亿平方米 （行业估算）",
+      "id": "evidence.claim.land-estimates",
+      "kind": "claim",
+      "locator": "notebook-visible.txt:L294",
+      "review": null,
+      "source_id": "source.lidang.discussion",
+      "status": "pending"
+    },
+    {
+      "claim": "房价收入比及合理区间缺少城市、样本、时间与收入定义，不能直接当买卖阈值。",
+      "excerpt": "531 text 2021 年底中国主要大城市的房价收入比高达  40 倍左右 ，而国际合理水平仅为 4–7 倍（即使是纽约、伦敦等国际顶级大都市也仅在 10–15 倍）",
+      "id": "evidence.claim.valuation",
+      "kind": "claim",
+      "locator": "notebook-visible.txt:L469",
+      "review": null,
+      "source_id": "source.lidang.discussion",
+      "status": "pending"
+    },
+    {
+      "claim": "城镇化率与住房需求之间的关系需核对年份与人口口径，不能用整数阈值断言需求结束。",
+      "excerpt": "208 text 逻辑说明 ：中国快速城市化率达到  70%左右  的瓶颈期，大规模人口进城买房的历史进程基本结束",
+      "id": "evidence.claim.urbanization",
+      "kind": "claim",
+      "locator": "notebook-visible.txt:L146",
+      "review": null,
+      "source_id": "source.lidang.discussion",
+      "status": "pending"
+    }
+  ],
+  "factors": [
+    {
+      "confidence": "medium",
+      "direction": "2021年银行贷款来源收缩；整体流动性因企业而异",
+      "evidence_ids": [
+        "evidence.nbs.11.funding",
+        "evidence.nbs.12.funding"
+      ],
+      "id": "factor.re.financing",
+      "mechanism": "国内贷款累计下降、总到位资金仍增长，提示资金来源结构变化。它支持融资约束假设，但不能单凭全国汇总值证明所有房企资金链断裂。",
+      "metric_ids": [
+        "metric.re.11.loans-yoy",
+        "metric.re.12.loans-yoy",
+        "metric.re.12.funding-yoy"
+      ],
+      "name": "房企融资与现金流结构",
+      "reversal_conditions": "同口径国内贷款与销售回款持续改善，且有企业现金流证据证明约束缓解。"
+    },
+    {
+      "confidence": "medium",
+      "direction": "2021年新增开发活动收缩",
+      "evidence_ids": [
+        "evidence.nbs.11.construction",
+        "evidence.nbs.12.construction",
+        "evidence.nbs.11.land",
+        "evidence.nbs.12.land"
+      ],
+      "id": "factor.re.development",
+      "mechanism": "新开工和拿地均收缩，与融资和预期有关；二者不当作独立投票。新开工是未来供给流量，施工面积还包含往期开工项目。",
+      "metric_ids": [
+        "metric.re.11.starts-yoy",
+        "metric.re.12.starts-yoy",
+        "metric.re.12.land-yoy",
+        "metric.re.12.construction-yoy"
+      ],
+      "name": "开发投资意愿与未来供给",
+      "reversal_conditions": "同口径新开工、拿地与销售连续改善，或证明下降主要来自统计口径调整。"
+    },
+    {
+      "confidence": "low",
+      "direction": "待补充数据",
+      "evidence_ids": [
+        "evidence.nbs.11.sales",
+        "evidence.nbs.12.sales"
+      ],
+      "id": "factor.re.demand",
+      "mechanism": "全年销售面积累计增长不排除下半年走弱。当前缺少月度、城市、二手房成交与库存数据，不能确认需求比供给下降更快。",
+      "metric_ids": [
+        "metric.re.11.sales-yoy",
+        "metric.re.12.sales-yoy"
+      ],
+      "name": "销售需求与城市分化",
+      "reversal_conditions": "补齐城市层级和月度销售量价数据后重新评估。"
+    },
+    {
+      "confidence": "low",
+      "direction": "无法据现有证据定量判断",
+      "evidence_ids": [
+        "evidence.claim.valuation",
+        "evidence.claim.urbanization"
+      ],
+      "id": "factor.re.valuation",
+      "mechanism": "房价相对收入、租金和融资成本会影响支付能力；目前讨论中的估值阈值和城镇化瓶颈没有独立核验。",
+      "metric_ids": [],
+      "name": "购买力与估值约束",
+      "reversal_conditions": "取得同城同期住房价格、家庭收入中位数、租金及按揭条件后重新计算。"
+    }
+  ],
+  "gates": [
+    {
+      "name": "source_integrity",
+      "status": "passed"
+    },
+    {
+      "name": "publication_cutoff",
+      "status": "passed"
+    },
+    {
+      "name": "factor_drafts",
+      "status": "prepared"
+    },
+    {
+      "name": "competing_scenarios",
+      "status": "prepared"
+    },
+    {
+      "name": "human_review",
+      "status": "pending"
+    },
+    {
+      "name": "investment_publication",
+      "status": "blocked"
+    }
+  ],
+  "id": "run.real-estate.2026-09-16.da171d2e.3c536216.583bdde0",
+  "judgment": {
+    "kind": "research_draft",
+    "text": "历史指标核验及条件性机制整理；不据此发布当前房价方向或资产行动。"
+  },
+  "limitations": [
+    "本轮为2026年对2021年资料的历史重建，不是2021年真实预测，也不是无前视偏差回测。",
+    "2021年全年统计于2022年1月17日发布，不能用于声称在2021年12月31日已知全年结果。",
+    "视频仅保存NotebookLM可见转录片段，未下载原视频；页面采集也不保证包含未加载内容。",
+    "NotebookLM原有引用编号只在对应消息中有意义，未全部解析成原文件页码/时间戳。",
+    "两个同名框架来源保留独立登记，尚未确认是否为同一版本，不能重复计权。",
+    "-31.2%单月新开工降幅尚未独立复算；累计同比不能直接相减。",
+    "2023—2025年土地面积行业估算、房价收入比阈值和70%城镇化瓶颈均待核验。",
+    "因果机制与情景为本地Agent整理的假设，当前缺少城市量价、库存、家庭收入和企业现金流证据。",
+    "历史2021年指标不能用于直接发布2026年市场方向。",
+    "4 条说法尚未核验，不得作为正式事实。",
+    "14 个来源仅采集到部分内容。"
+  ],
+  "metrics": [
+    {
+      "evidence_id": "evidence.nbs.11.construction",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.starts-level",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房屋新开工面积（累计）",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "万平方米",
+      "value": 182820,
+      "value_text": "182820",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.11.construction",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.starts-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房屋新开工面积累计同比",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": -9.1,
+      "value_text": "9.1",
+      "value_transform": "negate"
+    },
+    {
+      "evidence_id": "evidence.nbs.11.land",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.land-level",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "土地购置面积（累计）",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "万平方米",
+      "value": 18287,
+      "value_text": "18287",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.11.land",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.land-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "土地购置面积累计同比",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": -11.2,
+      "value_text": "11.2",
+      "value_transform": "negate"
+    },
+    {
+      "evidence_id": "evidence.nbs.11.funding",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.loans-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房企到位资金：国内贷款累计同比",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": -10.8,
+      "value_text": "10.8",
+      "value_transform": "negate"
+    },
+    {
+      "evidence_id": "evidence.nbs.11.funding",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.funding-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房企总到位资金累计同比",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": 7.2,
+      "value_text": "7.2",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.11.construction",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.construction-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房屋施工面积累计同比",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": 6.3,
+      "value_text": "6.3",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.11.sales",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.11.sales-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "商品房销售面积累计同比",
+      "period_end": "2021-11-30",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": 4.8,
+      "value_text": "4.8",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.construction",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.starts-level",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房屋新开工面积（累计）",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "万平方米",
+      "value": 198895,
+      "value_text": "198895",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.construction",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.starts-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房屋新开工面积累计同比",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": -11.4,
+      "value_text": "11.4",
+      "value_transform": "negate"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.land",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.land-level",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "土地购置面积（累计）",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "万平方米",
+      "value": 21590,
+      "value_text": "21590",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.land",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.land-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "土地购置面积累计同比",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": -15.5,
+      "value_text": "15.5",
+      "value_transform": "negate"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.funding",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.loans-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房企到位资金：国内贷款累计同比",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": -12.7,
+      "value_text": "12.7",
+      "value_transform": "negate"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.funding",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.funding-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房企总到位资金累计同比",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": 4.2,
+      "value_text": "4.2",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.construction",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.construction-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "房屋施工面积累计同比",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": 5.2,
+      "value_text": "5.2",
+      "value_transform": "identity"
+    },
+    {
+      "evidence_id": "evidence.nbs.12.sales",
+      "frequency": "cumulative",
+      "geography": "中国大陆全国",
+      "id": "metric.re.12.sales-yoy",
+      "methodology": "直接摘录国家统计局累计发布值；全年与前11月分别保存，未用累计同比相减计算单月同比。房屋口径包括住宅和非住宅。",
+      "name": "商品房销售面积累计同比",
+      "period_end": "2021-12-31",
+      "period_start": "2021-01-01",
+      "unit": "%",
+      "value": 1.9,
+      "value_text": "1.9",
+      "value_transform": "identity"
+    }
+  ],
+  "mode": "historical_reconstruction",
+  "model_contents": {
+    "models/topics/real-estate/behavior-tree.yaml": "topic_id: topic.real-estate\nversion: bt-v0.1\nroot:\n  id: bt.real-estate.research-root\n  type: sequence\n  children:\n    - id: bt.real-estate.data-check\n      type: condition\n      name: 数据完整性检查\n    - id: bt.real-estate.factor-refresh\n      type: parallel\n      name: 因子状态刷新\n    - id: bt.real-estate.scenario-build\n      type: sequence\n      name: 情景生成与竞争解释比较\n    - id: bt.real-estate.publish\n      type: selector\n      name: 发布判断、补证据或保留冲突假设\n",
+    "models/topics/real-estate/causal-graph.yaml": "topic_id: topic.real-estate\nversion: model-v0.1\nedges: []\nnotes:\n  - 当前只建立模型文件，不预置真实因果结论。\n  - 每条边必须填写机制、时滞、适用范围、证据和反证条件。\n",
+    "models/topics/real-estate/factors.yaml": "topic_id: topic.real-estate\nversion: factor-v0.1\nfactors:\n  - id: factor.real-estate.household-demand\n    name: 居民住房需求\n    status: draft\n    mechanism: 家庭数量、收入、就业、迁移和住房改善需求共同影响购房意愿\n    evidence_ids: []\n    assessment_method: human_reviewed\n  - id: factor.real-estate.purchasing-power\n    name: 居民购房能力\n    status: draft\n    mechanism: 收入、首付、利率和月供负担共同决定支付能力\n    evidence_ids: []\n    assessment_method: human_reviewed\n  - id: factor.real-estate.inventory-pressure\n    name: 库存去化压力\n    status: draft\n    mechanism: 待售库存和销售速度共同决定去化周期与价格压力\n    evidence_ids: []\n    assessment_method: rule_plus_human_review\n",
+    "models/topics/real-estate/scenarios.yaml": "topic_id: topic.real-estate\nversion: scenario-v0.1\nscenarios:\n  - id: scenario.real-estate.base\n    name: 基准情景\n    type: base\n    assumptions: []\n    observable_signals: []\n    falsifiers: []\n  - id: scenario.real-estate.upside\n    name: 向好情景\n    type: upside\n    assumptions: []\n    observable_signals: []\n    falsifiers: []\n  - id: scenario.real-estate.stress\n    name: 压力情景\n    type: stress\n    assumptions: []\n    observable_signals: []\n    falsifiers: []\n",
+    "models/topics/real-estate/topic.yaml": "id: topic.real-estate\nname: 中国房地产\nkind: industry\nscope: 中国，全国口径优先，必要时区分城市层级\nstatus: draft\nresearch_questions:\n  - 住宅需求的中长期趋势是什么？\n  - 库存、现金流和政策如何共同影响行业周期？\n  - 哪些信号会推翻当前基准情景？\n"
+  },
+  "model_files": {
+    "models/topics/real-estate/behavior-tree.yaml": "3ff279f17ecb5284e604d7ea3094bc8fa364792a483cca7f077a10dbd7bc4508",
+    "models/topics/real-estate/causal-graph.yaml": "783bd98783e0ec5a953b0c5ce7da72efd43dc1e9e950eacea83e8607b2f4738d",
+    "models/topics/real-estate/factors.yaml": "e94d19bcd87985731f644c21ee009a20659bac92e4ef9aed5ea4fdbfe8e2124f",
+    "models/topics/real-estate/scenarios.yaml": "c9f59073a5b819fb0a09ca723e8b0fbd52cf391838b4d4e46ce62b425d3b0a09",
+    "models/topics/real-estate/topic.yaml": "ebf94c2a1964dab121ab955337e0c36f7540a7f5d6d48707ba26b832fb7abc38"
+  },
+  "model_version": "3c536216ed1e5bd45acf7e0b18978ca9412ebefb1c1a2bc945955207b728ab0a",
+  "package_id": "package.lidang.2026-09-16.v1",
+  "pending_evidence_ids": [
+    "evidence.claim.monthly-starts",
+    "evidence.claim.land-estimates",
+    "evidence.claim.valuation",
+    "evidence.claim.urbanization"
+  ],
+  "producer": {
+    "method": "只读采集历史讨论与来源文本；原站统计稿独立核对；本地人工编排结果包；未向NotebookLM新增提问",
+    "model": "unknown",
+    "prompt_version": "notebooklm-import-v1",
+    "tool": "local-agent + NotebookLM browser capture + Jina Reader"
+  },
+  "question": "核对讨论中2021年房地产收缩的指标口径，并解释为何新开工减少不必然意味着房价上涨。",
+  "rule_version": "pipeline-v0.1:583bdde08498e9d6087da8bc59f2fd1b7caf748045c1b13844c965237ce70cbc",
+  "run_at": "2026-09-16T08:09:27+00:00",
+  "scenarios": [
+    {
+      "assumptions": [
+        "融资恢复有限",
+        "销售需求未显著改善；这一前提尚未被本轮数据确认"
+      ],
+      "factor_ids": [
+        "factor.re.financing",
+        "factor.re.development",
+        "factor.re.demand"
+      ],
+      "falsifiers": [
+        "融资与销售同步持续改善"
+      ],
+      "id": "scenario.re.base",
+      "name": "基准假设：融资约束与需求偏弱并存",
+      "signals": [
+        "补齐月度销售、回款和新开工同比",
+        "观察城市库存去化"
+      ],
+      "type": "base"
+    },
+    {
+      "assumptions": [
+        "政策与融资传导有效",
+        "人口流入城市需求恢复且库存可控"
+      ],
+      "factor_ids": [
+        "factor.re.demand",
+        "factor.re.development"
+      ],
+      "falsifiers": [
+        "销量改善不能持续或库存继续累积"
+      ],
+      "id": "scenario.re.upside",
+      "name": "向好假设：需求恢复、供给收缩支撑局部市场",
+      "signals": [
+        "同城销售回暖、去化期缩短",
+        "新开工恢复滞后于销售"
+      ],
+      "type": "upside"
+    },
+    {
+      "assumptions": [
+        "销售回款继续弱化",
+        "交付与偿债压力升高并影响信心"
+      ],
+      "factor_ids": [
+        "factor.re.financing",
+        "factor.re.demand"
+      ],
+      "falsifiers": [
+        "交付、回款与信用条件稳定改善"
+      ],
+      "id": "scenario.re.stress",
+      "name": "压力假设：现金流与购房信心相互拖累",
+      "signals": [
+        "企业经营现金流和债务到期数据恶化",
+        "同城成交下降、去化期拉长"
+      ],
+      "type": "stress"
+    }
+  ],
+  "sources": [
+    {
+      "coverage": "partial",
+      "sha256": "165de055427529fe71580c1e8c95be2c8c23d44d3e6cfa3b369f1475fa5c73c3",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-00.2a56de894b211763",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.notebook-entry-00",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-00/snapshot.source.lidang.notebook-entry-00.2a56de894b211763/source-00.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "c184f775baad86fc8ff37f3bdfbd60ee0425802aaa009291ecb23932a11435d4",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-01.bee697a2a0c1ac34",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-01",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-01/snapshot.source.lidang.notebook-entry-01.bee697a2a0c1ac34/source-01.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "753e907cd168fb398aa1dab93e7080eb448489ddac061e46c9ef86340ec29aed",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-02.eae602987224efd7",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-02",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-02/snapshot.source.lidang.notebook-entry-02.eae602987224efd7/source-02.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "1ceadff18fd5ea5dc432cf557b995466d40523a11f83aef6e12c56ba908356fa",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-03.9b8c4eccf3518a87",
+      "source_class": "user_authored",
+      "source_id": "source.lidang.notebook-entry-03",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-03/snapshot.source.lidang.notebook-entry-03.9b8c4eccf3518a87/source-03.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "98e0a246b17fc2944cabc475a64c0427bebbe223ac9d7a5a780fc9a167e825f3",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-04.c30d53889e514ce6",
+      "source_class": "user_authored",
+      "source_id": "source.lidang.notebook-entry-04",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-04/snapshot.source.lidang.notebook-entry-04.c30d53889e514ce6/source-04.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "fcda0edf7aba360e5ac1ecf32838b2fae225868c39c0619c54d6433a9d2384c2",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-05.fcba69a43032fefa",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-05",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-05/snapshot.source.lidang.notebook-entry-05.fcba69a43032fefa/source-05.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "30b14f55672f65fe6a803f8b0052fece3bf708a3020d6adcd3674ae13b578677",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-06.4065fed6a1bb4f0a",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-06",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-06/snapshot.source.lidang.notebook-entry-06.4065fed6a1bb4f0a/source-06.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "b2091ab5d36a3fb7e22a8e4bbcb75277132d6b83bcddedde11be7f419650fe35",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-07.0b8129c46a1f1aff",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-07",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-07/snapshot.source.lidang.notebook-entry-07.0b8129c46a1f1aff/source-07.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "9c02795c5f3270c58fd0140eddd0a8c58e37b3fd0497f1c0100895abaa8331e7",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-08.4cff74811e01c1db",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-08",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-08/snapshot.source.lidang.notebook-entry-08.4cff74811e01c1db/source-08.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "172558d39a433fd79c1e8752a6b934e97cf9dee194a89f26fb46b9b666e30933",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-09.34eedd4f264d8b28",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-09",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-09/snapshot.source.lidang.notebook-entry-09.34eedd4f264d8b28/source-09.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "a89b5c0cc630be7bd15f0ed8808f4bb014788d9cb701333b32e4a810d10b069a",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-10.9c2764ca55b22569",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.notebook-entry-10",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-10/snapshot.source.lidang.notebook-entry-10.9c2764ca55b22569/source-10.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "be534ff105c9cc3445c5c5cf65c82bb38e30e1bc8d10b96e8b95622c785744b0",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-11.e25d4759edbf0b4c",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.notebook-entry-11",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-11/snapshot.source.lidang.notebook-entry-11.e25d4759edbf0b4c/source-11.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "7229054ff950f419bd55ed71c5d5e47096050d86323b2376d0ae418bf2af585f",
+      "snapshot_id": "snapshot.source.lidang.discussion.61f536f3736bbfea",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.discussion",
+      "storage_uri": "raw/real-estate/txt/source.lidang.discussion/snapshot.source.lidang.discussion.61f536f3736bbfea/notebook-visible.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "1a40d5501a0e77b27628f25535c53b9f8406bbbf782c55282bbbe00f1918c812",
+      "snapshot_id": "snapshot.source.lidang.factor-guide.3a1ec6946681d06e",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.factor-guide",
+      "storage_uri": "raw/real-estate/txt/source.lidang.factor-guide/snapshot.source.lidang.factor-guide.3a1ec6946681d06e/studio-factor-guide.txt"
+    },
+    {
+      "coverage": "article_text",
+      "sha256": "edc4b8eb1b4298da60f41ee0c1873f6b653bcccf3c704433cbaa72788faf9843",
+      "snapshot_id": "snapshot.source.nbs.real-estate.2021-11.24ee0be46e849f2b",
+      "source_class": "primary",
+      "source_id": "source.nbs.real-estate.2021-11",
+      "storage_uri": "raw/real-estate/md/source.nbs.real-estate.2021-11/snapshot.source.nbs.real-estate.2021-11.24ee0be46e849f2b/nbs-2021-11.md"
+    },
+    {
+      "coverage": "article_text",
+      "sha256": "bcd3c6925fc105214076025cecfdd342ad52d0e4a2fdb3f652ab53a5f07a707f",
+      "snapshot_id": "snapshot.source.nbs.real-estate.2021-12.51a5a32782f9fe3d",
+      "source_class": "primary",
+      "source_id": "source.nbs.real-estate.2021-12",
+      "storage_uri": "raw/real-estate/md/source.nbs.real-estate.2021-12/snapshot.source.nbs.real-estate.2021-12.51a5a32782f9fe3d/nbs-2021-12.md"
+    }
+  ],
+  "status": "pending_human_review",
+  "topic_id": "topic.real-estate",
+  "verified_evidence_ids": [
+    "evidence.nbs.11.construction",
+    "evidence.nbs.11.land",
+    "evidence.nbs.11.funding",
+    "evidence.nbs.11.sales",
+    "evidence.nbs.12.construction",
+    "evidence.nbs.12.land",
+    "evidence.nbs.12.funding",
+    "evidence.nbs.12.sales"
+  ]
+}
