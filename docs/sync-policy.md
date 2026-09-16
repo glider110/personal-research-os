@@ -10,7 +10,7 @@
 
 1. 将报告、数据文件或 NotebookLM 导出物放入 `inbox/`。
 2. Agent 或人工确认来源、发布日期和文件 hash。
-3. 合格资料移动到 `raw/`，并在 `catalog/` 建立来源登记。
+3. 合格资料按“内容主题 → 文件类型 → 来源 → 版本”移动到 `raw/<主题>/<type>/<source-id>/<snapshot-id>/`，并在 `catalog/` 建立来源登记。具体见 [源文件整理规则](source-organization.md)。
 4. 提取指标和证据，写入 SQLite/Parquet 或相应的模型文件。
 5. 生成 `exports/` 中的可读材料，供 NotebookLM 继续分析。
 6. 模型和规则变更通过 Git diff 检查；运行结果写入 `runs/`，不覆盖旧文件。

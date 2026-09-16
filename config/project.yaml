@@ -10,6 +10,8 @@ storage:
   metadata_store: sqlite
   time_series_store: parquet
   version_control: git
+  source_layout: "raw/{topic}/{type}/{source_id}/{snapshot_id}/{filename}"
+  source_types: [video, audio, pdf, md, txt, image, url, excel, csv, word, ppt, json, other]
 
 defaults:
   review_frequency: monthly

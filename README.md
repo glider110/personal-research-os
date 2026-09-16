@@ -17,7 +17,7 @@
 
 ```text
 inbox/                         Drive/NotebookLM 待整理输入
-raw/                           已归档的原始资料（不可覆盖）
+raw/<主题>/<type>/              原始资料：先按内容、再按类型（不可覆盖）
 catalog/                       来源、指标、证据等登记信息
 models/topics/                 各主题的因子、因果图、情景和行为树
 db/schema.sql                 SQLite 结构定义
@@ -32,6 +32,8 @@ schemas/                       对象字段约定
 ```
 
 ## 建议工作流
+
+源文件统一按“内容主题 → 文件类型 → 来源 → 快照版本”整理，支持视频、音频、PDF、Markdown、文本、图片、网页、Excel 等资料的归档。详见 [源文件整理规则](docs/source-organization.md)；各类自动解析器尚未实现。
 
 ```text
 inbox
