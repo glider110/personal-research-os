@@ -1,0 +1,19 @@
+{
+  "docs": "00-guide",
+  "inbox": "01-inbox",
+  "raw": "02-sources",
+  "catalog": "03-library/06-catalog",
+  "models": "03-library/07-models",
+  "data/normalized": "03-library/08-packages",
+  "runs": "05-runs",
+  "reviews": "06-reviews",
+  "exports": "07-exports",
+  "db": "90-system/01-db",
+  "schemas": "90-system/02-schemas",
+  "scripts": "90-system/03-scripts",
+  "tests": "90-system/04-tests",
+  "config": "90-system/05-config",
+  "prompts": "90-system/06-prompts",
+  "data/runtime": "90-system/07-runtime",
+  "examples": "90-system/08-examples"
+}

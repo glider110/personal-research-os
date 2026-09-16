@@ -12,24 +12,22 @@ __pycache__/
 *.py[cod]
 
 # Runtime database and generated data
-data/runtime/*
-!data/runtime/.gitkeep
-data/normalized/*
-!data/normalized/.gitkeep
+90-system/07-runtime/*
+!90-system/07-runtime/.gitkeep
+03-library/08-packages/*
+!03-library/08-packages/.gitkeep
 
 # Drive-synced or large source material
-inbox/*
-!inbox/.gitkeep
-!inbox/README.md
-raw/documents/*
-!raw/documents/.gitkeep
-raw/datasets/*
-!raw/datasets/.gitkeep
-raw/web/*
-!raw/web/.gitkeep
-exports/*
-!exports/.gitkeep
-!exports/README.md
+01-inbox/*
+!01-inbox/.gitkeep
+!01-inbox/README.md
+02-sources/**
+!02-sources/**/
+!02-sources/**/.gitkeep
+!02-sources/README.md
+07-exports/*
+!07-exports/.gitkeep
+!07-exports/README.md
 
 # Generated reports
 *.sqlite

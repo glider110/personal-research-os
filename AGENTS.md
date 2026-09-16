@@ -8,15 +8,15 @@
 
 ## 数据规则
 
-- `raw/` 中的正式来源不可覆盖；来源变更必须创建新的 snapshot。
-- `catalog/`、`models/`、`db/schema.sql` 和 `schemas/` 是 Git 管理的定义资产。
-- `data/runtime/`、大体积原始文件和临时导出物默认不进入 Git。
-- `runs/` 中的运行快照只追加，不修改历史判断。
+- `02-sources/` 中的正式来源不可覆盖；来源变更必须创建新的 snapshot。
+- `03-library/06-catalog/`、`03-library/07-models/`、`90-system/01-db/schema.sql` 和 `90-system/02-schemas/` 是 Git 管理的定义资产。
+- `90-system/07-runtime/`、大体积原始文件和临时导出物默认不进入 Git。
+- `05-runs/` 中的运行快照只追加，不修改历史判断。
 - 每个正式判断必须能追溯到 source、metric、evidence、factor 和模型版本。
 
 ## 工作方式
 
-- 修改数据契约或目录边界时，先更新 `docs/`，再修改实现。
-- 新增主题时复制 `models/topics/real-estate/` 的模板，不复制已有结论。
+- 修改数据契约或目录边界时，先更新 `00-guide/`，再修改实现。
+- 新增主题时复制 `03-library/07-models/topics/real-estate/` 的模板，不复制已有结论。
 - 不自动提交 Git；提交由用户明确要求后执行。
 - 文档和配置默认使用 UTF-8 与 Markdown/YAML/JSON/SQL。
