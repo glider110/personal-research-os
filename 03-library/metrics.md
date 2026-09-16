@@ -5,7 +5,7 @@
 [主题入口](../04-research/README.md)
 
 | 指标 | 单位 | 观测记录数 |
-| --- | --- | --- |◊
+| --- | --- | --- |
 | [房屋新开工面积（累计）](metrics.md#revision.84d60236b3feca78b96b3a1c3ffd2483a7a0d0c2601fce2e565b197ba2a0ad73) | 万平方米 | 2 |
 | [房屋新开工面积累计同比](metrics.md#revision.f13676c2a73e532cc6e6ee66343ad726a0201feebf0067b6f3ba69d1fcf064e7) | % | 2 |
 | [土地购置面积（累计）](metrics.md#revision.c54e3fcb3abc3fbf225e2c7b4cd2edfd0542d6d47b3b2fe27a2ad68e8a218507) | 万平方米 | 2 |
