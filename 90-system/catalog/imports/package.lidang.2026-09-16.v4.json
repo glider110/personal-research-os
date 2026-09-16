@@ -1,0 +1,134 @@
+{
+  "package_id": "package.lidang.2026-09-16.v4",
+  "package_sha256": "7e518b174683404ae73a26c9e6be8731bbb919ca62b3a258923c0c47fa47f33c",
+  "sources": [
+    {
+      "coverage": "partial",
+      "sha256": "165de055427529fe71580c1e8c95be2c8c23d44d3e6cfa3b369f1475fa5c73c3",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-00.2a56de894b211763",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.notebook-entry-00",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-00/snapshot.source.lidang.notebook-entry-00.2a56de894b211763/source-00.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "c184f775baad86fc8ff37f3bdfbd60ee0425802aaa009291ecb23932a11435d4",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-01.bee697a2a0c1ac34",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-01",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-01/snapshot.source.lidang.notebook-entry-01.bee697a2a0c1ac34/source-01.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "753e907cd168fb398aa1dab93e7080eb448489ddac061e46c9ef86340ec29aed",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-02.eae602987224efd7",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-02",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-02/snapshot.source.lidang.notebook-entry-02.eae602987224efd7/source-02.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "1ceadff18fd5ea5dc432cf557b995466d40523a11f83aef6e12c56ba908356fa",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-03.9b8c4eccf3518a87",
+      "source_class": "user_authored",
+      "source_id": "source.lidang.notebook-entry-03",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-03/snapshot.source.lidang.notebook-entry-03.9b8c4eccf3518a87/source-03.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "98e0a246b17fc2944cabc475a64c0427bebbe223ac9d7a5a780fc9a167e825f3",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-04.c30d53889e514ce6",
+      "source_class": "user_authored",
+      "source_id": "source.lidang.notebook-entry-04",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-04/snapshot.source.lidang.notebook-entry-04.c30d53889e514ce6/source-04.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "fcda0edf7aba360e5ac1ecf32838b2fae225868c39c0619c54d6433a9d2384c2",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-05.fcba69a43032fefa",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-05",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-05/snapshot.source.lidang.notebook-entry-05.fcba69a43032fefa/source-05.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "30b14f55672f65fe6a803f8b0052fece3bf708a3020d6adcd3674ae13b578677",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-06.4065fed6a1bb4f0a",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-06",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-06/snapshot.source.lidang.notebook-entry-06.4065fed6a1bb4f0a/source-06.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "b2091ab5d36a3fb7e22a8e4bbcb75277132d6b83bcddedde11be7f419650fe35",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-07.0b8129c46a1f1aff",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-07",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-07/snapshot.source.lidang.notebook-entry-07.0b8129c46a1f1aff/source-07.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "9c02795c5f3270c58fd0140eddd0a8c58e37b3fd0497f1c0100895abaa8331e7",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-08.4cff74811e01c1db",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-08",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-08/snapshot.source.lidang.notebook-entry-08.4cff74811e01c1db/source-08.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "172558d39a433fd79c1e8752a6b934e97cf9dee194a89f26fb46b9b666e30933",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-09.34eedd4f264d8b28",
+      "source_class": "secondary",
+      "source_id": "source.lidang.notebook-entry-09",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-09/snapshot.source.lidang.notebook-entry-09.34eedd4f264d8b28/source-09.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "a89b5c0cc630be7bd15f0ed8808f4bb014788d9cb701333b32e4a810d10b069a",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-10.9c2764ca55b22569",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.notebook-entry-10",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-10/snapshot.source.lidang.notebook-entry-10.9c2764ca55b22569/source-10.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "be534ff105c9cc3445c5c5cf65c82bb38e30e1bc8d10b96e8b95622c785744b0",
+      "snapshot_id": "snapshot.source.lidang.notebook-entry-11.e25d4759edbf0b4c",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.notebook-entry-11",
+      "storage_uri": "raw/real-estate/txt/source.lidang.notebook-entry-11/snapshot.source.lidang.notebook-entry-11.e25d4759edbf0b4c/source-11.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "7229054ff950f419bd55ed71c5d5e47096050d86323b2376d0ae418bf2af585f",
+      "snapshot_id": "snapshot.source.lidang.discussion.61f536f3736bbfea",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.discussion",
+      "storage_uri": "raw/real-estate/txt/source.lidang.discussion/snapshot.source.lidang.discussion.61f536f3736bbfea/notebook-visible.txt"
+    },
+    {
+      "coverage": "partial",
+      "sha256": "1a40d5501a0e77b27628f25535c53b9f8406bbbf782c55282bbbe00f1918c812",
+      "snapshot_id": "snapshot.source.lidang.factor-guide.3a1ec6946681d06e",
+      "source_class": "ai_generated",
+      "source_id": "source.lidang.factor-guide",
+      "storage_uri": "raw/real-estate/txt/source.lidang.factor-guide/snapshot.source.lidang.factor-guide.3a1ec6946681d06e/studio-factor-guide.txt"
+    },
+    {
+      "coverage": "article_text",
+      "sha256": "edc4b8eb1b4298da60f41ee0c1873f6b653bcccf3c704433cbaa72788faf9843",
+      "snapshot_id": "snapshot.source.nbs.real-estate.2021-11.24ee0be46e849f2b",
+      "source_class": "primary",
+      "source_id": "source.nbs.real-estate.2021-11",
+      "storage_uri": "raw/real-estate/md/source.nbs.real-estate.2021-11/snapshot.source.nbs.real-estate.2021-11.24ee0be46e849f2b/nbs-2021-11.md"
+    },
+    {
+      "coverage": "article_text",
+      "sha256": "bcd3c6925fc105214076025cecfdd342ad52d0e4a2fdb3f652ab53a5f07a707f",
+      "snapshot_id": "snapshot.source.nbs.real-estate.2021-12.51a5a32782f9fe3d",
+      "source_class": "primary",
+      "source_id": "source.nbs.real-estate.2021-12",
+      "storage_uri": "raw/real-estate/md/source.nbs.real-estate.2021-12/snapshot.source.nbs.real-estate.2021-12.51a5a32782f9fe3d/nbs-2021-12.md"
+    }
+  ]
+}

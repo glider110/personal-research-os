@@ -1,6 +1,0 @@
-topic_id: topic.real-estate
-version: model-v0.1
-edges: []
-notes:
-  - 当前只建立模型文件，不预置真实因果结论。
-  - 每条边必须填写机制、时滞、适用范围、证据和反证条件。

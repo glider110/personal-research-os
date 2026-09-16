@@ -1,9 +1,0 @@
-id: topic.real-estate
-name: 中国房地产
-kind: industry
-scope: 中国，全国口径优先，必要时区分城市层级
-status: draft
-research_questions:
-  - 住宅需求的中长期趋势是什么？
-  - 库存、现金流和政策如何共同影响行业周期？
-  - 哪些信号会推翻当前基准情景？
